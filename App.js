@@ -3,18 +3,23 @@ import { SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native';
 import {w, h} from './constants';
 import MainNavigation from "./src/components/MainNavigation";
 
+import store from './src/store';
 
-class App extends React.Component {
+import {Provider} from "react-redux";
 
-    render() {
+
+
+const App = () => {
         return (
-            <SafeAreaView style={{flex:1, backgroundColor: 'white'}}>
-                <StatusBar backgroundColor={'#4299a1'} />
-                <MainNavigation />
-            </SafeAreaView>
+            <Provider store={store}>
+                <SafeAreaView style={{flex:1, backgroundColor: 'white'}}>
+                    <StatusBar backgroundColor={'#4299a1'} />
+                    <MainNavigation />
+                </SafeAreaView>
+            </Provider>
+
         );
     };
-}
 
 
 export default App;

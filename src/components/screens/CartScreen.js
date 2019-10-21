@@ -1,12 +1,21 @@
 import React from "react";
-import { StyleSheet, View, Text } from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {w, h} from '../../../constants'
+import { connect } from "react-redux";
 
 class CartScreen extends React.Component {
+
+
     render() {
         return (
             <View style={styles.container}>
-                <Text>CartScreen</Text>
+                <TouchableOpacity >
+                    <Text style={{fontSize: 30}}>Increase</Text>
+                </TouchableOpacity>
+                <Text>{this.props.counter}</Text>
+                <TouchableOpacity >
+                    <Text style={{fontSize: 30}}>Decreace</Text>
+                </TouchableOpacity>
             </View>
         )
     };
@@ -21,4 +30,9 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CartScreen;
+function mapStateToProps(state){
+    return {
+        counter: state.counter
+    }
+}
+export default connect(mapStateToProps)(CartScreen);

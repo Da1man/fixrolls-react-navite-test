@@ -1,16 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import {w, h} from '../../constants'
+import {w, h, mainColor} from '../../constants'
 
 const CatalogItem = (props) => {
     const {container, itemWrapper, imageWrapper, productImage, textWrapper, itemName, buttonWrapper, costTextWrapper, costText, buttonBuy, buttonBuyText, line } = styles
-    console.log(props);
-    console.log(props.imageSrc)
         return (
             <View style={container}>
                 <View style={itemWrapper}>
                     <TouchableOpacity style={imageWrapper}>
-                        <Image style={productImage} source={require('../assets/img/CHiken-Mango-Roll.jpg')} />
+                        <Image style={productImage} source={{uri: props.imagePath}} />
                     </TouchableOpacity>
                     <View style={textWrapper}>
                         <View>
@@ -72,7 +70,7 @@ const styles = StyleSheet.create({
     },
     costText: {
         fontSize: 30,
-        color: '#4299a1',
+        color: mainColor,
         fontWeight: 'bold',
     }
     ,
@@ -81,7 +79,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 150,
         height: 40,
-        borderColor: '#4299a1',
+        borderColor: mainColor,
         borderWidth: 1,
         padding: 5,
     },
@@ -91,7 +89,7 @@ const styles = StyleSheet.create({
     line: {
         alignSelf: 'center',
         width: w / 1.5,
-        borderBottomColor: '#4299a1',
+        borderBottomColor: mainColor,
         borderBottomWidth: 1,
     }
 });
