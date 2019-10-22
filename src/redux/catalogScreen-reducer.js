@@ -12,7 +12,7 @@ const initialState = {
     }
 };
 
-const catalogScreenReducer = (state=initialState, action) => {
+const catalogScreenReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD-TO-CART':
             return [

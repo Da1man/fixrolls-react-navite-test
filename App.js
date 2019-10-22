@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native';
 import {w, h} from './constants';
 import MainNavigation from "./src/components/MainNavigation";
 
-import store from './src/store';
+import store from './src/redux/redux-store';
 
 import {Provider} from "react-redux";
 

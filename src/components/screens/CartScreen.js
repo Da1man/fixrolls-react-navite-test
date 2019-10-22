@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state){
     return {
-        counter: state.counter
+        counter: state.cartScreenReducer.counter
     }
 }
 export default connect(mapStateToProps)(CartScreen);
