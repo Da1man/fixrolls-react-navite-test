@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "lodash-es": "^4.17.15",
     "navigation": "^5.2.0",
     "react": "16.9.0",
     "react-native": "0.61.2",

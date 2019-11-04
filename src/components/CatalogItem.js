@@ -3,22 +3,24 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import {w, h, mainColor} from '../../constants'
 
 const CatalogItem = (props) => {
-    const {container, itemWrapper, imageWrapper, productImage, textWrapper, itemName, buttonWrapper, costTextWrapper, costText, buttonBuy, buttonBuyText, line } = styles
+    const {container, itemWrapper, imageWrapper, productImage, textWrapper, itemName, buttonWrapper, costTextWrapper, costText, buttonBuy, buttonBuyText, line } = styles;
+    const { id, name, cost, image } = props.item;
+
         return (
             <View style={container}>
                 <View style={itemWrapper}>
                     <TouchableOpacity style={imageWrapper}>
-                        <Image style={productImage} source={{uri: props.imagePath}} />
+                        <Image style={productImage} source={{uri: image}} />
                     </TouchableOpacity>
                     <View style={textWrapper}>
                         <View>
-                            <Text style={itemName}>{props.itemName}</Text>
+                            <Text style={itemName}>{name}</Text>
                         </View>
                         <View style={buttonWrapper}>
                             <View style={costTextWrapper}>
-                                <Text style={costText}>{props.cost} руб.</Text>
+                                <Text style={costText}>{cost} руб.</Text>
                             </View>
-                            <TouchableOpacity style={buttonBuy}>
+                            <TouchableOpacity style={buttonBuy} onPress={props.add}>
                                 <Text style={buttonBuyText}>ДОБАВИТЬ</Text>
                             </TouchableOpacity>
                         </View>

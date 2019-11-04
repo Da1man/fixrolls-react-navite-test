@@ -1,22 +1,32 @@
 import React from "react";
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {w, h} from '../../../constants'
 import { connect } from "react-redux";
+import CartItem from "../CartItem";
+import {deleteFromCart} from "../../redux/cartScreen-reducer";
+
+
+
+
+
+
+
 
 class CartScreen extends React.Component {
 
 
     render() {
+
+        const { container } = styles
+
+        let cartItemsList = this.props.cartItems.map (p => <CartItem id={p.id} itemName={p.name} cost={p.cost} imagePath={p.image} key={p.id}/>);
+
         return (
-            <View style={styles.container}>
-                <TouchableOpacity >
-                    <Text style={{fontSize: 30}}>Increase</Text>
-                </TouchableOpacity>
-                <Text>{this.props.counter}</Text>
-                <TouchableOpacity >
-                    <Text style={{fontSize: 30}}>Decreace</Text>
-                </TouchableOpacity>
-            </View>
+            <ScrollView>
+                <View style={container}>
+                    {cartItemsList}
+                </View>
+            </ScrollView>
         )
     };
 }
@@ -30,9 +40,17 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state){
+
+let mapStateToProps = (state) => {
     return {
-        counter: state.cartScreenReducer.counter
+        cartItems: state.cartScreenReducer.cartItems
+    }
+};
+
+let mapDispatchToProps = () => {
+    return {
+
     }
 }
-export default connect(mapStateToProps)(CartScreen);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartScreen);
